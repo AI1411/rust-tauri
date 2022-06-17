@@ -1,9 +1,13 @@
 import { useState } from 'react'
 import logo from './logo.svg'
 import './App.css'
+import { invoke } from '@tauri-apps/api'
 
 function App() {
   const [count, setCount] = useState(0)
+
+  invoke('greet', {name: 'Akira'})
+      .then((res) => console.log(res));
 
   return (
     <div className="App">
